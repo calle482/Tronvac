@@ -10,30 +10,13 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void start ()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked; // Låser muspekaren
     }
     
     void Update()
     {
-        // Git test
         Movement();
-        SceneSwitch();
-        Debug.Log(SensitivtySlider.SensSliderValue);
     }
-
-
-        void SceneSwitch()
-        {
-        //Byter scenen till Main menu och låser upp musen när man klickar esc
-         if (Input.GetKeyDown(KeyCode.Escape))
-        {
-           // SceneManager.LoadScene("MainMenu");
-
-           // Cursor.lockState = CursorLockMode.None;
-          //  FPSCamera.sensitivityX = 0;
-          //  FPSCamera.sensitivityY = 0;
-        }
-        }
 
         void Movement ()
     {

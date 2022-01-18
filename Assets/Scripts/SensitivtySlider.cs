@@ -12,10 +12,11 @@ public class SensitivtySlider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SensSlider.maxValue = 10f;
-        SensSlider.minValue = 1f;
-        SensSlider.value = SensSliderValue;
+        SensSlider.maxValue = 10f; // Sätter max valuen för sensitivity slidern
+        SensSlider.minValue = 1f; // Sätter min valuen för sensitivity slidern
+        SensSlider.value = SensSliderValue; // Sparar sensivity sliderns value i en float
 
+        // Hämtar sensen från "SensSaved" keyen om den finns
         if(PlayerPrefs.HasKey("SensSaved"))
         {
             SensSlider.value = PlayerPrefs.GetFloat("SensSaved");
@@ -27,10 +28,8 @@ public class SensitivtySlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SensSliderValue = SensSlider.value;
-        FPSCamera.sensitivityX = SensSliderValue;
-        FPSCamera.sensitivityY = SensSliderValue;
-        PlayerPrefs.SetFloat("SensSaved", SensSliderValue);
+        SensSliderValue = SensSlider.value; // Sätter floaten till värder av sensitivity slidern
+        PlayerPrefs.SetFloat("SensSaved", SensSliderValue); // Sparar floatens värde i en key
 
     }
 

@@ -6,10 +6,22 @@ using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
+
+    public static Canvas OptionsIngameCanvas;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
+        
+
+       GameObject FindCanvas = GameObject.Find("OptionsMenu");
+        if(FindCanvas != null)
+        {
+            OptionsIngameCanvas = FindCanvas.GetComponent<Canvas>();
+            if (OptionsIngameCanvas ==null)
+            {
+                Debug.Log("DET FUCKING FUNKAR INTE");
+            }
+        }
     }
 
     // Laddar scenen med stilla stående targets när man klickar på Level 1 texten
@@ -48,23 +60,40 @@ public class MenuManager : MonoBehaviour
     public void buttonOnClick_GoBack()
     {
         SceneManager.LoadScene("MainMenu");
+        FPSCamera.sensitivityX = SensitivtySlider.SensSliderValue;
+        FPSCamera.sensitivityY = SensitivtySlider.SensSliderValue;
     }
-
+    // Laddar options scenen
     public void ButtonOnClick_Options()
     {
         SceneManager.LoadScene("Options");
     }
-
+    // Resume knappen i menyn ingame
     public void buttonOnClick_Resume()
     {
-        Time.timeScale = 1;
-
-                if(PlayerPrefs.HasKey("SensSaved"))
+        // Hämtar värdet från keyen SensSaved till floaten SensSliderValue
+        if(PlayerPrefs.HasKey("SensSaved"))
         {
            SensitivtySlider.SensSliderValue = PlayerPrefs.GetFloat("SensSaved");
         }
 
-        FPSCamera.sensitivityX = SensitivtySlider.SensSliderValue;
-        FPSCamera.sensitivityY = SensitivtySlider.SensSliderValue;
+        FPSCamera.sensitivityX = SensitivtySlider.SensSliderValue; // Sätter tillbaka den vertikala sensitivityn till det spelaren valt
+        FPSCamera.sensitivityY = SensitivtySlider.SensSliderValue; // Sätter tillbaka den vertikala sensitivityn till det spelaren valt
+        OpenOptions.OptionsCanvas.GetComponent<Canvas>().enabled = false; // Slutar rendera ingame menyn canvasen
+        OptionsIngameCanvas.GetComponent<Canvas>().enabled = false; // Slutar rendera ingame options canvasen
+        Time.timeScale = 1; // Sätter timescale till 1
+        Cursor.lockState = CursorLockMode.Locked; // Gör så att man inte kan röra runt muspekaren
+    }
+    // Laddar ingame options menyn
+    public void buttonOnClick_OptionsIngame()
+    {
+         OptionsIngameCanvas.GetComponent<Canvas>().enabled = true; // Laddar ingame options canvasen
+         OpenOptions.OptionsCanvas.GetComponent<Canvas>().enabled = false; // Laddar ur ingame menyn
+    }
+    //Går tillbaka till ingame menyn
+    public void buttonOnClick_GoBackOptions()
+    {
+        OptionsIngameCanvas.GetComponent<Canvas>().enabled = false; // Laddar ur ingame options canvasen
+        OpenOptions.OptionsCanvas.GetComponent<Canvas>().enabled = true; // Laddar ingame menyn
     }
 }

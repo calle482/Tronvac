@@ -21,9 +21,4 @@ public class MenuTextHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         GetComponent<TextMeshProUGUI>().color = new Color32(255, 143, 23, 255);
     }
 
-        void Update()
-    {
-        Debug.Log(SensitivtySlider.SensSliderValue);
-    }
-
 }

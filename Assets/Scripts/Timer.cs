@@ -18,6 +18,9 @@ public class Timer : MonoBehaviour
         Time.timeScale = 1;
         Score.scoreValue = 0;
         WallText.shootsFired =0;
+        OpenOptions.OptionsCanvas.GetComponent<Canvas>().enabled = false;
+        FPSCamera.sensitivityX = SensitivtySlider.SensSliderValue;
+        FPSCamera.sensitivityY = SensitivtySlider.SensSliderValue;
     }
 
 

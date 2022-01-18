@@ -15,9 +15,10 @@ public class Raycasting : MonoBehaviour
     void Update()
     {
 
-        // Skjuter ut en raycast och spelar skjut ljudet när vänsta musknappen trycks ner
-        if(Input.GetButtonDown("Fire1"))
+        // Skjuter ut en raycast och spelar skjut ljudet när vänsta musknappen trycks ner och Timescalen är 1
+        if(Input.GetButtonDown("Fire1") && Time.timeScale == 1.0f)
         {
+             
         RaycastHit hit; // Gör så att man kan kalla på RaycastHit genom att skriva hit
         muzzleFlash.Play(); // Spelar upp muzzleflashen när man klickar på vänstra mus knappen
         WallText.shootsFired +=1; // Ökar variabeln ShootsFired i WallText scriptet med 1 när man skjuter
@@ -38,7 +39,7 @@ public class Raycasting : MonoBehaviour
                 source.PlayOneShot(clip);
             }
         }
-
+    
     }
 
 
