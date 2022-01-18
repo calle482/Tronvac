@@ -8,11 +8,18 @@ public class PlayerScript : MonoBehaviour
     int speed = 6; // Skapar en int som heter speed
 
     // Update is called once per frame
+    void start ()
+    {
+       // FPSCamera.sensitivityX = SensitivtySlider.SensSlider.value;
+        //FPSCamera.sensitivityY = SensitivtySlider.SensSlider.value;
+    }
+    
     void Update()
     {
         // Git test
         Movement();
         SceneSwitch();
+        Debug.Log(SensitivtySlider.SensSliderValue);
     }
 
 

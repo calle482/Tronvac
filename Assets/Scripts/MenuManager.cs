@@ -49,4 +49,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void ButtonOnClick_Options()
+    {
+        SceneManager.LoadScene("Options");
+    }
 }

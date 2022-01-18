@@ -7,8 +7,8 @@ public class FPSCamera : MonoBehaviour {
  
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 	public RotationAxes axes = RotationAxes.MouseXAndY;
-	public float sensitivityX = 8F;
-	public float sensitivityY = 8F;
+	public static float sensitivityX = 3F;
+	public static float sensitivityY = 3F;
  
 	public float minimumX = -360F;
 	public float maximumX = 360F;
