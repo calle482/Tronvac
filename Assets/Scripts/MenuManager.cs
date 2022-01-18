@@ -54,4 +54,17 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Options");
     }
+
+    public void buttonOnClick_Resume()
+    {
+        Time.timeScale = 1;
+
+                if(PlayerPrefs.HasKey("SensSaved"))
+        {
+           SensitivtySlider.SensSliderValue = PlayerPrefs.GetFloat("SensSaved");
+        }
+
+        FPSCamera.sensitivityX = SensitivtySlider.SensSliderValue;
+        FPSCamera.sensitivityY = SensitivtySlider.SensSliderValue;
+    }
 }

@@ -10,8 +10,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void start ()
     {
-       // FPSCamera.sensitivityX = SensitivtySlider.SensSlider.value;
-        //FPSCamera.sensitivityY = SensitivtySlider.SensSlider.value;
+        
     }
     
     void Update()
@@ -28,8 +27,11 @@ public class PlayerScript : MonoBehaviour
         //Byter scenen till Main menu och låser upp musen när man klickar esc
          if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("MainMenu");
-            Cursor.lockState = CursorLockMode.None;
+           // SceneManager.LoadScene("MainMenu");
+
+           // Cursor.lockState = CursorLockMode.None;
+          //  FPSCamera.sensitivityX = 0;
+          //  FPSCamera.sensitivityY = 0;
         }
         }
 
