@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WallText : MonoBehaviour
 {
-
+    float accuracyValue;
     public static float shootsFired = 0;
     Text missed;
 
@@ -19,6 +19,8 @@ public class WallText : MonoBehaviour
     // Gör mattematiken för accuracyn och displayar accuracy texten
     void Update()
     {
-        missed.text="Accuracy: " + Score.scoreValue / shootsFired * 100;
+        accuracyValue = Score.scoreValue / shootsFired * 100; // Räknar ut accuracy
+        accuracyValue = Mathf.Round(accuracyValue * 10f) * 0.1f; // Avrundar accuracy valuen så att det ser finare ut på sens slidern
+        missed.text="Accuracy: " + accuracyValue + "%"; // Skriver ut accuracyn med ett % efter
     }
 }
