@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour
         TimeLeft -= Time.deltaTime;
         if (TimeLeft <= 0 ) 
         {
-            Time.timeScale = 0; // Sätter time scalen till 0 så att spelet stannar
+            //Time.timeScale = 0; // Sätter time scalen till 0 så att spelet stannar
             Cursor.lockState = CursorLockMode.Locked;
             SceneManager.LoadScene("MainMenu"); // Byter till main menu scenen när tiden är över
         } 

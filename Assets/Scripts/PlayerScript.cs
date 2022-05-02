@@ -26,4 +26,6 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey("a")) transform.Translate(Vector3.left * speed * Time.deltaTime); // Gå vänster
         if (Input.GetKey("d")) transform.Translate(Vector3.right * speed * Time.deltaTime); // Gå höger
     }
+
+
 }
